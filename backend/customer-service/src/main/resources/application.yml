@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: customer-service
+  datasource:
+    url: jdbc:h2:mem:customer-db
+  h2:
+    console:
+      enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ebank-realm
+          jwk-set-uri: http://localhost:8080/realms/ebank-realm/protocol/openid-connect/certs
+server:
+  port: 8091
