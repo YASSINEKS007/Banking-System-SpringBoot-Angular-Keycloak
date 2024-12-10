@@ -19,8 +19,8 @@ public class CustomerServiceApplication {
         return args -> {
             for (int i = 0; i < 5; i++) {
                 Customer customer = new Customer();
-                customer.setFullName("Customer " + i + 1);
-                customer.setEmail("customer" + i + 1 + "@gmail.com");
+                customer.setFullName("Customer " + (i + 1));
+                customer.setEmail("customer" + (i + 1) + "@gmail.com");
                 customerRepository.save(customer);
             }
         };

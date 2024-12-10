@@ -19,9 +19,9 @@ public class InventoryServiceApplication {
         return args -> {
             for (int i = 0; i < 10; i++) {
                 productService.createProduct(Product.builder()
-                        .name("Product " + i + 1)
+                        .name("Product " + (i + 1))
                         .price(Math.random() * 100)
-                        .quantity(i)
+                        .quantity(i+1)
                         .build());
             }
         };

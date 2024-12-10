@@ -27,37 +27,37 @@ public class OrderServiceApplication {
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(CustomerRestClient customerRestClient,
-											   ProductRestClient productRestClient,
-											   ProductItemRepository productItemRepository,
-											   OrderRepository billRepository) {
-		return args -> {
-			List<Customer> customers = customerRestClient.getCustomers();
-			List<Product> products = productRestClient.getProducts();
-
-			for (Customer customer : customers) {
-				Order bill = new Order();
-				bill.setCustomer(customer);
-				bill.setCreated(new Date());
-				bill.setCustomerId(customer.getId());
-				bill.setOrderStatus(OrderStatus.CREATED);
-
-				bill = billRepository.save(bill);
-
-				List<ProductItem> productItems = new ArrayList<>();
-				for (Product product : products) {
-					ProductItem productItem = new ProductItem();
-					productItem.setProductId(product.getId());
-					productItem.setOrder(bill);
-					productItem.setProduct(product);
-					productItem.setQuantity(1);
-					productItem.setDiscount(Math.random() * 100);
-					productItem.setPrice(Math.random() * 1000);
-					productItems.add(productItem);
-				}
-				productItemRepository.saveAll(productItems); // Now save all product items
-			}
-		};
-	}
+//	@Bean
+//	public CommandLineRunner commandLineRunner(CustomerRestClient customerRestClient,
+//											   ProductRestClient productRestClient,
+//											   ProductItemRepository productItemRepository,
+//											   OrderRepository billRepository) {
+//		return args -> {
+//			List<Customer> customers = customerRestClient.getCustomers();
+//			List<Product> products = productRestClient.getProducts();
+//
+//			for (Customer customer : customers) {
+//				Order bill = new Order();
+//				bill.setCustomer(customer);
+//				bill.setCreated(new Date());
+//				bill.setCustomerId(customer.getId());
+//				bill.setOrderStatus(OrderStatus.CREATED);
+//
+//				bill = billRepository.save(bill);
+//
+//				List<ProductItem> productItems = new ArrayList<>();
+//				for (Product product : products) {
+//					ProductItem productItem = new ProductItem();
+//					productItem.setProductId(product.getId());
+//					productItem.setOrder(bill);
+//					productItem.setProduct(product);
+//					productItem.setQuantity(1);
+//					productItem.setDiscount(Math.random() * 100);
+//					productItem.setPrice(Math.random() * 1000);
+//					productItems.add(productItem);
+//				}
+//				productItemRepository.saveAll(productItems); // Now save all product items
+//			}
+//		};
+//	}
 }
