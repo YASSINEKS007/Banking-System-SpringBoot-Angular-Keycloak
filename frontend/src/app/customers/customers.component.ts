@@ -1,27 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {MatCell, MatColumnDef, MatHeaderCell, MatHeaderRow, MatRow, MatTableModule} from '@angular/material/table';
-import {MatButtonModule} from '@angular/material/button';
-import {Customer} from '../models/Customer.model';
-import {CustomersService} from '../services/customers.service';
-import {RouterLink} from '@angular/router';
+import {CustomersService} from "../services/customers.service";
+import {Customer} from "../models/Customer.model";
 
 @Component({
   selector: 'app-customers',
-  imports: [
-    MatTableModule,
-    MatColumnDef,
-    MatHeaderCell,
-    MatCell,
-    MatHeaderRow,
-    MatRow,
-    MatButtonModule,
-    RouterLink
-  ],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css'
 })
-export class CustomersComponent implements OnInit{
-  displayedColumns: string[] = ['id', 'name', 'email'];
+export class CustomersComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'fullName', 'email'];
   dataSource: Customer[] = [];
 
   constructor(private customersService: CustomersService) {
@@ -44,5 +31,4 @@ export class CustomersComponent implements OnInit{
       }
     );
   }
-
 }

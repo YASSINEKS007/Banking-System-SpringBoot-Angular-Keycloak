@@ -1,0 +1,12 @@
+.full-width-table {
+  width: 100%;
+}
+
+.centered {
+  text-align: center;
+  justify-content: center;
+}
+
+.mat-header-cell, .mat-cell {
+  flex: 1;
+}

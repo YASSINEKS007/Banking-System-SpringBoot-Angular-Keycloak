@@ -1,11 +1,20 @@
 <mat-toolbar color="accent" class="navbar">
 
+  <!-- Left Spacer -->
   <span class="spacer"></span>
 
+  <!-- Navigation Links -->
   <button mat-button routerLink="/customers">Customers</button>
   <button mat-button routerLink="/products">Products</button>
 
+  <!-- Right Spacer -->
   <span class="spacer"></span>
 
+  <!-- User Info and Logout -->
+  <div class="user-info">
+
+    <span class="user-name" *ngIf="profile">{{ profile['username'] }}</span>
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
 
 </mat-toolbar>
