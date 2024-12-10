@@ -25,6 +25,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {HttpClientModule} from "@angular/common/http";
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { BillsComponent } from './bills/bills.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -48,7 +49,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     AppComponent,
     CustomersComponent,
     ProductsComponent,
-    NavbarComponent
+    NavbarComponent,
+    BillsComponent
   ],
   imports: [
     BrowserModule,

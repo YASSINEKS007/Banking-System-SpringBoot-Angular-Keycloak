@@ -13,7 +13,6 @@ import me.projects.orderservice.repositories.OrderRepository;
 import me.projects.orderservice.repositories.ProductItemRepository;
 import me.projects.orderservice.services.CustomerRestClient;
 import me.projects.orderservice.services.ProductRestClient;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +24,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin("*")
 public class OrderRestController {
     private OrderRepository orderRepository;
     private BillMapper billMapper;
@@ -75,6 +73,7 @@ public class OrderRestController {
 
     @GetMapping("/test")
     public void test() {
+
         List<Customer> customers = customerRestClient.getCustomers();
         List<Product> products = productRestClient.getProducts();
 

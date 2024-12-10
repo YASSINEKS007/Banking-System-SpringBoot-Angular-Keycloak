@@ -1,0 +1,48 @@
+<div class="summary-container">
+  <h1>Bill Summary</h1>
+  <p>Customer Name: {{ customerName }}</p>
+  <p>Email: {{ customerEmail }}</p>
+  <p>Order Status: {{ orderStatus }}</p>
+</div>
+
+<div style="margin: 30px 20px 20px;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 full-width-table">
+    <!-- Product Name Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef class="centered">Product Name</th>
+      <td mat-cell *matCellDef="let element" class="centered">{{ element.productName }}</td>
+    </ng-container>
+
+    <!-- Price Before Discount Column -->
+    <ng-container matColumnDef="priceBeforeDiscount">
+      <th mat-header-cell *matHeaderCellDef class="centered">Price (Before Discount)</th>
+      <td mat-cell *matCellDef="let element" class="centered">{{ element.priceBeforeDiscount }} Dhs</td>
+    </ng-container>
+
+    <!-- Quantity Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef class="centered">Quantity</th>
+      <td mat-cell *matCellDef="let element" class="centered">{{ element.quantity }}</td>
+    </ng-container>
+
+    <!-- Discount Column -->
+    <ng-container matColumnDef="discount">
+      <th mat-header-cell *matHeaderCellDef class="centered">Discount (%)</th>
+      <td mat-cell *matCellDef="let element" class="centered">{{ (element.discount * 100) | number: '1.0-0' }}%</td>
+    </ng-container>
+
+    <!-- Total Price After Discount Column -->
+    <
+    <ng-container matColumnDef="totalPriceAfterDiscount">
+      <th mat-header-cell *matHeaderCellDef class="centered">Total Price (After Discount)</th>
+      <td mat-cell *matCellDef="let element" class="centered">{{ element.totalPriceAfterDiscount | number: '1.2-2' }}
+        Dhs
+      </td>
+    </ng-container>
+
+
+    <!-- Table Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

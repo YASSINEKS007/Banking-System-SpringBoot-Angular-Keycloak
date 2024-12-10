@@ -13,5 +13,5 @@ public interface CustomerRestClient {
     public Customer getCustomerById(@PathVariable Long id);
 
     @GetMapping("/customers")
-    public List<Customer> getCustomers();
+     List<Customer> getCustomers();
 }

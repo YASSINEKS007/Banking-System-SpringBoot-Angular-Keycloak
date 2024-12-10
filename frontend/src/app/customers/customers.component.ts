@@ -8,7 +8,7 @@ import {Customer} from "../models/Customer.model";
   styleUrl: './customers.component.css'
 })
 export class CustomersComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'fullName', 'email'];
+  displayedColumns: string[] = ['id', 'fullName', 'email', "bills"];
   dataSource: Customer[] = [];
 
   constructor(private customersService: CustomersService) {

@@ -9,7 +9,6 @@ import java.util.List;
 
 @FeignClient(name = "inventory-service")
 public interface ProductRestClient {
-
     @GetMapping("/products/{id}")
     Product getProduct(@PathVariable Long id);
 
